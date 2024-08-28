@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.testmobile" android:installLocation="preferExternal">
+	<uses-sdk android:minSdkVersion="26" android:targetSdkVersion="33" />
+	<application android:label="Инклюзивный туризм" android:theme="@style/MainTheme" android:icon="@drawable/icon3"></application>
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+</manifest>

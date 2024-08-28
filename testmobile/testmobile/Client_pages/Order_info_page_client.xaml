@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="testmobile.Client_pages.Order_info_page_client"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="White">
+            <Label   Margin="10,20,10,5" FontSize="25" TextColor="#32a2a8" FontAttributes="Bold" Text="{Binding Id, StringFormat ='Заказ №{0}'}" HorizontalOptions="CenterAndExpand" />
+
+            <Frame  BackgroundColor="#32a2a8" Margin="20,0,20,0" Padding="20" CornerRadius="25">
+                <StackLayout>
+                    <Label  Text="{Binding Order_date, StringFormat ='От {0:dd.MM.yyyy HH:mm}'}" FontSize="20" TextColor="White"/>
+                    <Label  Text="{Binding Place_name, StringFormat='Место: {0}'}" FontSize="20" TextColor="White"/>
+                    <Label  Text="{Binding Final_price, StringFormat ='На сумму: {0}₽'}" FontSize="20" TextColor="White"/>
+                    <Label  Text="{Binding Order_start, StringFormat ='Дата записи: {0:dd.MM.yyyy}'}" FontSize="20" TextColor="White"/>
+                    <Label  x:Name="ecort_need_lbl" Text="Нужда в сопровождающем:" FontSize="20" TextColor="White"/>
+                    <Label  Text="{Binding Number_of_people, StringFormat ='Количество человек: {0}'}" FontSize="20" TextColor="White"/>
+
+
+                </StackLayout>
+
+            </Frame>
+            <Label   Margin="10,10,10,5" FontSize="25" TextColor="#32a2a8" FontAttributes="Bold" Text="Данные гида:" HorizontalOptions="CenterAndExpand" />
+
+
+            <Frame  BackgroundColor="#32a2a8" Margin="20,0,20,0" Padding="20" CornerRadius="25">
+                <StackLayout>
+                    <Label x:Name="guide_name" Text="" FontSize="20" TextColor="White"/>
+                    <Label x:Name="guide_phone_number" Text="" FontSize="20" TextColor="White"/>
+                </StackLayout>
+
+            </Frame>
+
+
+            <Label   Margin="10,10,10,0" FontSize="25" TextColor="#32a2a8" FontAttributes="Bold" Text="Статус заказа:" HorizontalOptions="CenterAndExpand" />
+
+            <Label  x:Name="status_lbl" Text="{Binding Status}" FontSize="25" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+
+            <Button x:Name="cancel_btn" Text="Отменить заказ" IsVisible="False"  Clicked="Cancel_clicked" VerticalOptions="EndAndExpand"  TextColor="White" FontAttributes="Bold" BackgroundColor="IndianRed"  Margin="20,0,20,10"  CornerRadius="15"  />
+
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

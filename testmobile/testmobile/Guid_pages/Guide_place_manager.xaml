@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="testmobile.Guid_pages.Guide_place_manager">
+    <ContentPage.Content>
+        <RefreshView x:Name="refreshView" IsRefreshing="{Binding IsRefreshing, Mode=OneWay}" Refreshing="OnRefreshing">
+            <StackLayout BackgroundColor="White" Padding="20">
+                <ScrollView>
+                    <StackLayout BindableLayout.ItemsSource="{Binding}">
+                        <BindableLayout.EmptyView>
+                            <StackLayout>
+                                <Label Text="Места не найдены :("  FontSize="30" TextColor="#32a2a8" FontAttributes="Bold" HorizontalOptions="Center"  Margin="0,230,0,0" />
+                            </StackLayout>
+                        </BindableLayout.EmptyView>
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Padding="0,0,0,10">
+                                    <Frame BackgroundColor="#32a2a8" CornerRadius="15" BorderColor="Black" >
+                                        <StackLayout Spacing="0">
+                                            <Label TextColor="Black" Text="{Binding Name}" FontSize="18" FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="Start" />
+                                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="0,10,0,0">
+                                                <Button Text="Удалить" TextColor="Black" FontAttributes="Bold" BackgroundColor="IndianRed" BorderWidth="1" BorderColor="Black" CornerRadius="15" Clicked="Delete_place_Clicked"  WidthRequest="150"/>
+                                                <Button Text="Редактировать" TextColor="Black" FontAttributes="Bold" BackgroundColor="Orange" BorderWidth="1" BorderColor="Black" CornerRadius="15" Clicked="Place_click" WidthRequest="150" />
+                                            </StackLayout>
+
+                                        </StackLayout>
+                                    </Frame>
+                                </StackLayout>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+
+                </ScrollView>
+                <Button Text="Добавить место" TextColor="White" FontAttributes="Bold" BackgroundColor="#32a2a8" BorderWidth="1" Margin="0,0,0,0"  CornerRadius="15" Clicked="Add_place_Clicked" VerticalOptions="EndAndExpand"/>
+            </StackLayout>
+
+        </RefreshView>
+        
+
+    </ContentPage.Content>
+</ContentPage>

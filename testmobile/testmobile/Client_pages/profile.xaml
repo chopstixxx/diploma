@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="testmobile.profile">
+
+    <StackLayout BackgroundColor="White" >
+
+        <Label x:Name="wel_label"  Margin="10,40,10,15" FontSize="30" TextColor="#32a2a8" FontAttributes="Bold" Text="{Binding Name, StringFormat='Привет {0}!'}" HorizontalOptions="CenterAndExpand" />
+
+
+
+        <Frame  BackgroundColor="#32a2a8" Margin="20,0,20,0" Padding="20" CornerRadius="25">
+            <StackLayout>
+                <Frame CornerRadius="100" HeightRequest="200" WidthRequest="200" HorizontalOptions="Center" Padding="0" IsClippedToBounds="True" BackgroundColor="#32a2a8" BorderColor="#32a2a8" HasShadow="False" >
+                    <Grid>
+                        <Image x:Name="profile_pic" Aspect="AspectFill"   Source="https://cdn-icons-png.flaticon.com/512/2102/2102647.png"   />
+                    </Grid>
+
+                    
+                </Frame>
+
+                <Button x:Name="btn_img" Margin="40,0,40,20" Text="Выбрать изображение"   TextColor="#32a2a8" FontAttributes="Bold" BackgroundColor="White" CornerRadius="15" Clicked="get_photo_click" />
+                <Label x:Name="login_lbl" Text="{Binding Login, StringFormat='Логин: {0}'}" FontSize="20" TextColor="White"/>
+                <Label x:Name="birth_lbl" Text="{Binding Date_of_birth, StringFormat='Дата рождения: {0}'}" FontSize="20" TextColor="White"/>
+                <Label x:Name="phone_lbl" Text="{Binding Phone_number, StringFormat='Номер телефона: {0}'}" FontSize="20" TextColor="White"/>
+            </StackLayout>
+
+        </Frame>
+        
+        <Button x:Name="btn_exit" Margin="80,20,80,0" Text="Выйти"   TextColor="White" FontAttributes="Bold" BackgroundColor="#32a2a8" CornerRadius="15" Clicked="exit_click"/>
+        <Label x:Name="role_label" Text="" FontSize="25" HorizontalOptions="CenterAndExpand" TextColor="Red"/>
+    </StackLayout>
+    
+</ContentPage>

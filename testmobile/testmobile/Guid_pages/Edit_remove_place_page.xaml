@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="testmobile.Guid_pages.Edit_remove_place_page"
+              NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="20" >
+                <Button  Text="Добавить изображение"   TextColor="White" FontAttributes="Bold" BackgroundColor="#32a2a8"  Margin="0,0,0,10"  CornerRadius="15" Clicked="AddPhotoButton_Clicked"  />
+                <CarouselView x:Name="carouselView" ItemsSource="{Binding New_ImageUrls}" HeightRequest="300" IndicatorView="IndicatorView">
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding}" Aspect="AspectFill" />
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+                <IndicatorView x:Name="IndicatorView"
+IndicatorColor="#32a2a8"
+ SelectedIndicatorColor="Black"
+ IndicatorSize="10"
+            VerticalOptions="Center"/>
+                <Button  Text="Удалить выбранное изображение"   TextColor="White" FontAttributes="Bold" BackgroundColor="IndianRed"  Margin="30,10,30,20"  CornerRadius="15" Clicked="DeletePhotoButton_Clicked" />
+
+
+                <Label TextColor="Black" Text="Название" FontSize="18" FontAttributes="Bold" Margin="0,0,0,-20"/>
+                <Entry x:Name="Name_entry"  Margin="-3,0,0,0" Text="{Binding Name, Mode=OneWay}" />
+
+
+                <Label TextColor="Black" Text="Местоположение" FontSize="18" FontAttributes="Bold" Margin="0,0,0,-20"/>
+                <Entry x:Name="Location_entry"  Margin="-3,0,0,0" Text="{Binding Location, Mode=OneWay}"/>
+
+                <Label TextColor="Black" Text="Описание" FontSize="18" FontAttributes="Bold" Margin="0,0,0,-20"/>
+                <Editor x:Name="Description_entry"  Margin="-3,0,0,0" HeightRequest="100" Text="{Binding ShortDescription, Mode=OneWay}" />
+
+                <Label TextColor="Black" Text="Цена" FontSize="18" FontAttributes="Bold" Margin="0,0,0,-20"/>
+                <Entry x:Name="Price_entry"  Margin="-3,0,0,0" Keyboard="Numeric" Text="{Binding Price, Mode=OneWay}"/>
+
+
+                <Label TextColor="Black" Text="Адаптировано для людей:" FontSize="18" FontAttributes="Bold" />
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="disabled_2" HeightRequest="30">
+
+                    </Image>
+                    <Label Text="Передвигающихся на креслах-колясках" Margin="0,0,0,0" FontSize="20" TextColor="Black" HorizontalOptions="FillAndExpand">
+
+                    </Label>
+                    <CheckBox x:Name="Disability_1" Color="Black"/>
+                </StackLayout>
+
+
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="cane2" HeightRequest="30">
+
+                    </Image>
+                    <Label Text="С нарушениями опорно-двигательного аппарата" Margin="0,0,0,0" FontSize="20" TextColor="Black" HorizontalOptions="FillAndExpand">
+                    </Label>
+                    <CheckBox x:Name="Disability_2" Color="Black"/>
+
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="blind1" HeightRequest="30">
+
+
+                    </Image>
+                    <Label Text="С нарушениями зрения" Margin="0,0,0,0" FontSize="20" TextColor="Black" HorizontalOptions="FillAndExpand">
+
+                    </Label>
+                    <CheckBox x:Name="Disability_3" Color="Black"/>
+
+                </StackLayout>
+
+
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="deaf" HeightRequest="30">
+
+                    </Image>
+                    <Label Text="С нарушениями слуха" Margin="0,0,0,0" FontSize="20" TextColor="Black" HorizontalOptions="FillAndExpand">
+
+                    </Label>
+                    <CheckBox  x:Name="Disability_4" Color="Black"/>
+
+                </StackLayout>
+                <Button  Text="Отредактировать"   TextColor="White" FontAttributes="Bold" BackgroundColor="Orange" Margin="0,10,0,0"  CornerRadius="15" Clicked="EditPlace_Clicked" />
+
+            </StackLayout>
+        </ScrollView>
+
+    </ContentPage.Content>
+</ContentPage>

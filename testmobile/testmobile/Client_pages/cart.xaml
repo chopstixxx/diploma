@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:classes="clr-namespace:testmobile.Classes" 
+             x:Class="testmobile.cart">
+    <ContentPage.Content>
+     
+                <RefreshView x:Name="refreshView" IsRefreshing="{Binding IsRefreshing, Mode=OneWay}" Refreshing="OnRefreshing">
+
+            <ScrollView>
+
+                <StackLayout BackgroundColor="White" Padding="20" VerticalOptions="Start" >
+
+                    <Frame BackgroundColor="White" CornerRadius="15" BorderColor="Black" Padding="0"  >
+                        <StackLayout Spacing="0">
+                            <SearchBar Placeholder="Поиск по номеру заказа" TextChanged="OnSearchTextChanged"  Keyboard="Numeric" />
+
+                        </StackLayout>
+                    </Frame>
+                    <Frame BackgroundColor="White" CornerRadius="15" BorderColor="Black" Padding="20,0,20,0" >
+                        <StackLayout Spacing="0">
+                            <Picker x:Name="sortPicker" Title="Сортировка" SelectedIndexChanged="OnSortPickerSelectedIndexChanged" HorizontalTextAlignment="Center">
+                                <Picker.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>Более новые</x:String>
+                                        <x:String>Более старые</x:String>
+                                    </x:Array>
+                                </Picker.ItemsSource>
+                            </Picker>
+                            <Picker x:Name="filterPicker" Title="Фильтрация" SelectedIndexChanged="FilterSelectedIndexChanged" TextColor="Black" HorizontalTextAlignment="Center" >
+                                <Picker.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>Все</x:String>
+                                        <x:String>Статус "Создан"</x:String>
+                                        <x:String>Статус "В работе"</x:String>
+                                        <x:String>Статус "Выполнен"</x:String>
+                                        <x:String>Статус "Отменён"</x:String>
+
+                                    </x:Array>
+                                </Picker.ItemsSource>
+                            </Picker>
+
+                        </StackLayout>
+                    </Frame>
+
+                    
+
+
+
+                    <StackLayout BindableLayout.ItemsSource="{Binding}">
+                        <BindableLayout.EmptyView>
+                            <StackLayout>
+                                <Label Text="Заказы не найдены :("  FontSize="30" TextColor="#32a2a8" FontAttributes="Bold" HorizontalOptions="Center"  Margin="0,230,0,0" />
+                            </StackLayout>
+                        </BindableLayout.EmptyView>
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Padding="0,0,0,10">
+                                    <Frame BackgroundColor="#32a2a8" CornerRadius="15" BorderColor="Black" >
+                                        <StackLayout Spacing="0">
+                                            <Label TextColor="Black" Text="{Binding Id, StringFormat ='Заказ №{0}'}" FontSize="18" FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="Start" />
+                                            <Label TextColor="White" Text="{Binding Order_date, StringFormat ='От {0:dd.MM.yyyy HH:mm}'}" FontSize="18" FontAttributes="Bold" />
+                                            <Label TextColor="White" Text="{Binding Place_name}" FontAttributes="Bold" HorizontalOptions="Start" FontSize="18" />
+                                            <Label TextColor="White" Text="{Binding Final_price, StringFormat ='На сумму: {0}₽'}" FontSize="18" FontAttributes="Bold" />
+                                            <Label TextColor="White" Text="{Binding Status, StringFormat ='Статус заказа: {0}'}" FontSize="18" FontAttributes="Bold" />
+                                            <Button Text="Подробнее" TextColor="Black" FontAttributes="Bold" BackgroundColor="White" BorderWidth="1" Margin="10,10,10,0" BorderColor="Black" CornerRadius="15" Clicked="Order_click" />
+                                        </StackLayout>
+                                    </Frame>
+                                </StackLayout>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+
+                </StackLayout>
+            </ScrollView>
+                </RefreshView>
+
+            
+        
+    </ContentPage.Content>
+</ContentPage>

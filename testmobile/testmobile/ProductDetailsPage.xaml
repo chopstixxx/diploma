@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="testmobile.ProductDetailsPage"
+             NavigationPage.HasNavigationBar="False">
+   
+    <ScrollView>
+
+        
+            <StackLayout Padding="20">
+                <Label  FontSize="25" TextColor="#32a2a8" FontAttributes="Bold" Text="{Binding Name}" HorizontalOptions="CenterAndExpand" />
+
+
+
+            <CarouselView  ItemsSource="{Binding ImageUrls}" HeightRequest="300" IndicatorView="IndicatorView">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <Image Source="{Binding}" Aspect="AspectFill" />
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+            <IndicatorView x:Name="IndicatorView"
+   IndicatorColor="#32a2a8"
+    SelectedIndicatorColor="Black"
+    IndicatorSize="10"
+               VerticalOptions="Center"/>
+
+
+          
+
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="location" HeightRequest="30"/>
+                    <Label Text="{Binding Location}" Margin="0,0,0,0" FontSize="20" TextColor="Black" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="dollar" HeightRequest="30"/>
+                    <Label Text="{Binding Price,  StringFormat='Цена за 1 человека: {0}₽'}"  FontSize="20" TextColor="Black"  HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Image Source="info4" HeightRequest="30" VerticalOptions="Start"/>
+                <Label Text="{Binding ShortDescription}" Margin="0,0,0,0" FontSize="20" TextColor="Black"  HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+                
+            <Label Text="Адаптировано для людей:" Margin="0,20,0,0" FontSize="20" TextColor="Black" HorizontalOptions="FillAndExpand"/>
+
+            <StackLayout Orientation="Horizontal">
+                <Image Source="disabled_2" HeightRequest="30">
+                    <Image.Triggers>
+                        <DataTrigger TargetType="Image" Binding="{Binding IsWheelChair}" Value="false">
+                            <Setter Property="IsVisible" Value="False" />
+                        </DataTrigger>
+                    </Image.Triggers>
+                </Image>
+                <Label Text="Передвигающихся на креслах-колясках" Margin="0,0,0,0" FontSize="20" TextColor="Black" HorizontalOptions="FillAndExpand">
+                    <Label.Triggers>
+                        <DataTrigger TargetType="Label" Binding="{Binding IsWheelChair}" Value="false">
+                            <Setter Property="IsVisible" Value="False" />
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
+            </StackLayout>
+
+
+            <StackLayout Orientation="Horizontal">
+                <Image Source="cane2" HeightRequest="30">
+                    <Image.Triggers>
+                        <DataTrigger TargetType="Image" Binding="{Binding IsWithCane}" Value="false">
+                            <Setter Property="IsVisible" Value="False" />
+                        </DataTrigger>
+                    </Image.Triggers>
+                </Image>
+                <Label Text="С нарушениями опорно-двигательного аппарата" Margin="0,0,0,0" FontSize="20" TextColor="Black" HorizontalOptions="FillAndExpand">
+                    <Label.Triggers>
+                        <DataTrigger TargetType="Label" Binding="{Binding IsWithCane}" Value="false">
+                            <Setter Property="IsVisible" Value="False" />
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Image Source="blind1" HeightRequest="30">
+                    <Image.Triggers>
+                        <DataTrigger TargetType="Image" Binding="{Binding IsBlind}" Value="false">
+                            <Setter Property="IsVisible" Value="False" />
+                        </DataTrigger>
+                    </Image.Triggers>
+                </Image>
+                <Label Text="С нарушениями зрения" Margin="0,0,0,0" FontSize="20" TextColor="Black" HorizontalOptions="FillAndExpand">
+                    <Label.Triggers>
+                        <DataTrigger TargetType="Label" Binding="{Binding IsBlind}" Value="false">
+                            <Setter Property="IsVisible" Value="False" />
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
+            </StackLayout>
+
+
+            <StackLayout Orientation="Horizontal">
+                <Image Source="deaf" HeightRequest="30">
+                    <Image.Triggers>
+                        <DataTrigger TargetType="Image" Binding="{Binding IsDeaf}" Value="false">
+                            <Setter Property="IsVisible" Value="False" />
+                        </DataTrigger>
+                    </Image.Triggers>
+                </Image>
+                <Label Text="С нарушениями слуха" Margin="0,0,0,0" FontSize="20" TextColor="Black" HorizontalOptions="FillAndExpand">
+                    <Label.Triggers>
+                        <DataTrigger TargetType="Label" Binding="{Binding IsDeaf}" Value="false">
+                            <Setter Property="IsVisible" Value="False" />
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
+            </StackLayout>
+
+
+
+            <StackLayout VerticalOptions="EndAndExpand">
+                <Button Text="Записаться"  FontSize="15" TextColor="White" FontAttributes="Bold" BackgroundColor="#32a2a8" CornerRadius="15" Clicked="Order_page" />
+            </StackLayout>
+           
+
+
+
+            
+        </StackLayout>
+
+        
+
+    </ScrollView>
+        
+    
+    
+
+</ContentPage>

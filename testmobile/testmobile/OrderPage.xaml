@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="testmobile.OrderPage"
+             NavigationPage.HasNavigationBar="False">
+    
+        <StackLayout Padding="20" >
+        
+        
+        <Label  FontSize="25" TextColor="#32a2a8" FontAttributes="Bold" Text="Оформление заказа" HorizontalOptions="CenterAndExpand" />
+       
+           
+                <Label Text="Вы выбрали:" Margin="0,20,0,0" FontSize="20" TextColor="Black" HorizontalOptions="FillAndExpand"/>
+                <Label Text="{Binding Name}" FontSize="20" TextColor="Black" HorizontalOptions="FillAndExpand"/>
+                <Label Text="{Binding Price,  StringFormat='Цена за 1 человека: {0}₽'}"  FontSize="20" TextColor="Black"  HorizontalOptions="FillAndExpand"/>
+            
+            
+        <StackLayout Orientation="Horizontal" Margin="0,20,0,0">
+            <Image Source="helping" HeightRequest="30"/>
+                    <Label Text="Нужда в сопровождающем:" FontSize="20" TextColor="Black" HorizontalOptions="FillAndExpand"/>
+                    <CheckBox x:Name="escort_need" Color="Black"/>
+                </StackLayout>
+
+        <StackLayout Orientation="Horizontal" >
+            <Image Source="calendar2" HeightRequest="30" VerticalOptions="Center"/>
+            <Label  Text="Дата записи: " FontSize="20" TextColor="Black" HorizontalOptions="FillAndExpand" VerticalOptions="Center"/>
+            <DatePicker x:Name="order_date" TextColor="Black" Format="yyyy-MM-dd"  />
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal" >
+                    <Image Source="group" HeightRequest="30" />
+                    <Label x:Name="header" Text="Количество человек: 1" FontSize="20" TextColor="Black" HorizontalOptions="FillAndExpand" />
+                </StackLayout>
+                <Stepper Minimum="1" Maximum="10" Increment="1" ValueChanged="OnStepperValueChanged" HorizontalOptions="CenterAndExpand"   />
+
+
+      
+
+
+        
+
+        <Label  FontSize="25" Margin="0,20,0,0" TextColor="Black"  Text="Итого:" HorizontalOptions="CenterAndExpand" />
+        <Label  FontSize="25" x:Name="Final_price" Margin="0,0,0,0" TextColor="Black" FontAttributes="Bold"  Text="7777р" HorizontalOptions="CenterAndExpand" />
+        <StackLayout VerticalOptions="EndAndExpand">
+            <Button Text="Оформить заказ" TextColor="White" FontAttributes="Bold" BackgroundColor="#32a2a8"  CornerRadius="15" Clicked="Order_Clicked" />
+        </StackLayout>
+        
+
+
+    </StackLayout>
+    
+</ContentPage>

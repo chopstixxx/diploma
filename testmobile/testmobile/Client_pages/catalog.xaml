@@ -1,0 +1,96 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:testmobile="clr-namespace:testmobile"
+             x:Class="testmobile.catalog">
+
+    
+
+    <ScrollView >
+       
+       
+        <StackLayout BackgroundColor="White" Padding="20" >
+            <Frame BackgroundColor="White" CornerRadius="15" BorderColor="Black" Padding="0" >
+                <StackLayout Spacing="0">
+                    <SearchBar Placeholder="Поиск"   Keyboard="Default" TextColor="Black" TextChanged="OnSearchTextChanged" />
+                   
+                </StackLayout>
+            </Frame>
+            <Frame BackgroundColor="White" CornerRadius="15" BorderColor="Black" Padding="20,0,20,0" >
+                <StackLayout Spacing="0">
+                    <Picker x:Name="sortPicker" Title="Сортировка" SelectedIndexChanged="OnSortPickerSelectedIndexChanged" HorizontalTextAlignment="Center">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Дороже</x:String>
+                                <x:String>Дешевле</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                    <Picker x:Name="filterPicker" Title="Фильтрация"  TextColor="Black" SelectedIndexChanged="FilterSelectedIndexChanged" HorizontalTextAlignment="Center" >
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Для всех</x:String>
+                                <x:String>На креслах-колясках</x:String>
+                                <x:String>С опорно-двигательными нарушениями</x:String>
+                                <x:String>С нарушениями зрения</x:String>
+                                <x:String>С нарушениями слуха</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+
+                </StackLayout>
+            </Frame>
+            <StackLayout BindableLayout.ItemsSource="{Binding}">
+                <BindableLayout.EmptyView>
+                    <StackLayout>
+                        <Label Text="Места не найдены :("  FontSize="30" TextColor="#32a2a8" FontAttributes="Bold" HorizontalOptions="Center"  Margin="0,230,0,0" />
+                    </StackLayout>
+                </BindableLayout.EmptyView>
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="0,0,0,0" Padding="0,0,0,10" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <!-- Название товара -->
+                            <Label Text="{Binding Name}" Grid.Row="0" FontSize="20" TextColor="#32a2a8" HorizontalOptions="FillAndExpand" FontAttributes="Bold" />
+                            <!-- Изображение товара -->
+
+                            <!-- Используйте CarouselView для отображения изображений товаров -->
+                            <CarouselView Grid.Row="1" ItemsSource="{Binding ImageUrls}" HeightRequest="200" >
+                                <CarouselView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Image Source="{Binding}" Aspect="AspectFill" />
+                                    </DataTemplate>
+                                </CarouselView.ItemTemplate>
+                            </CarouselView>
+
+
+
+
+                            <StackLayout Grid.Row="3" Orientation="Horizontal">
+                                <Image Source="dollar" HeightRequest="30"/>
+                                <Label Text="{Binding Price,  StringFormat='Цена: {0}₽'}" Margin="0,0,0,0" FontSize="20" TextColor="black"  HorizontalOptions="FillAndExpand"/>
+                            </StackLayout>
+
+
+                            <!-- Кнопка "Подробнее" -->
+                            <Button Text="Подробнее" TextColor="White" FontAttributes="Bold" BackgroundColor="#32a2a8" Grid.Row="4" CornerRadius="15"  Clicked="OnDetailsClicked" />
+
+                        </Grid>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </StackLayout>
+            
+        </StackLayout>
+
+
+       
+        
+    </ScrollView>
+
+</ContentPage>

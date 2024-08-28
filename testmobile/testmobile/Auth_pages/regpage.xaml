@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="testmobile.regpage"
+             NavigationPage.HasNavigationBar="False">
+
+    <StackLayout  BackgroundColor="#32a2a8" Padding="30">
+        <Image Source="big_logo.png" Margin="0,85,0,0"  />
+        <Label Text="Регистрация" TextColor="White" Margin="0,15,0,15" FontSize="30" FontAttributes="Bold" HorizontalOptions="Center"/>
+
+        <Frame    BackgroundColor="White"  CornerRadius="15">
+            <StackLayout >
+                <Label TextColor="Black" Text="Имя" FontSize="18" FontAttributes="Bold" Margin="0,0,0,-20"/>
+                <Entry  x:Name="name_reg"  TextColor="Black" WidthRequest="200"  PlaceholderColor="Black" Margin="-4,0,0,0"/>
+                <Label TextColor="Black" Text="Дата рождения" FontSize="18" FontAttributes="Bold" Margin="0,0,0,-20"/>
+                <DatePicker x:Name="birth_date" TextColor="Black" Format="dd-MM-yyyy" Margin="-4,0,0,0"/>
+                <Label TextColor="Black" Text="Номер телефона" FontSize="18" FontAttributes="Bold" Margin="0,0,0,-20"/>
+                <Entry  x:Name="phone_reg" TextColor="Black" WidthRequest="200"  PlaceholderColor="Black" Margin="-4,0,0,0"/>
+                <Label TextColor="Black" Text="Логин" FontSize="18" FontAttributes="Bold" Margin="0,0,0,-20"/>
+                <Entry  x:Name="login_reg" TextColor="Black" WidthRequest="200"  PlaceholderColor="Black" Margin="-4,0,0,0"/>
+                <Label TextColor="Black" Text="Пароль" FontSize="18" FontAttributes="Bold" Margin="0,0,0,-20"/>
+                <Entry x:Name = "pass_reg" TextColor="Black"  WidthRequest="200"  IsPassword="True" PlaceholderColor="Black" Margin="-4,0,0,0"/>
+                
+                <StackLayout Orientation="Horizontal" Margin="0,0,0,0">
+                    <Label Text="Регистрация в качестве гида:" FontSize="18" TextColor="Black" HorizontalOptions="FillAndExpand"/>
+                    <CheckBox x:Name="is_guide" Color="Black" Margin="0,-2,0,0"/>
+                </StackLayout>
+                <Button x:Name="btn_reg" Text="Регистрация" TextColor="White" FontAttributes="Bold" BackgroundColor="#32a2a8" CornerRadius="15" Clicked="reg_click"/>
+                
+            </StackLayout>
+
+        </Frame>
+        
+        </StackLayout>
+   
+</ContentPage>
