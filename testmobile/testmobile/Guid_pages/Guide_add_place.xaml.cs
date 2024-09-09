@@ -147,11 +147,11 @@ namespace testmobile.Guid_pages
             {
                 foreach (var imageSource in Images)
                 {
-                    // Конвертируем ImageSource в MemoryStream
+                    
                     Stream imageStream = await ((StreamImageSource)imageSource).Stream(CancellationToken.None);
                     if (imageStream != null)
                     {
-                        var fileName = $"{place_id}_pic_{i}.jpg"; // Генерируем уникальное имя файла
+                        var fileName = $"{place_id}_pic_{i}.jpg"; 
                         var task = new FirebaseStorage("diploma-dd308.appspot.com", new FirebaseStorageOptions
                         {
                             ThrowOnCancel = true,
@@ -188,9 +188,7 @@ namespace testmobile.Guid_pages
             {
                 try
                 {
-                    dB.openConn(); // Открываем соединение с базой данных
-
-                    // Проверяем каждый чекбокс и устанавливаем значение параметра Accordance соответственно
+                    dB.openConn(); 
                     for (int i = 1; i <= 4; i++)
                     {
                         CheckBox checkbox = this.FindByName<CheckBox>($"Disability_{i}");
@@ -198,14 +196,14 @@ namespace testmobile.Guid_pages
                         bool accordance = checkbox.IsChecked;
                         int disabilityId = i;
 
-                        // Вставляем данные в базу данных для каждого чекбокса
+                        
                         using (MySqlCommand cmd = new MySqlCommand("INSERT INTO Disability_place (place_id, disability_id, Accordance) VALUES (@place_id, @disability_id, @accordance)", dB.getConn()))
                         {
                             cmd.Parameters.AddWithValue("@place_id", place_id);
                             cmd.Parameters.AddWithValue("@disability_id", disabilityId);
                             cmd.Parameters.AddWithValue("@accordance", accordance);
 
-                            cmd.ExecuteNonQuery(); // Выполняем запрос
+                            cmd.ExecuteNonQuery(); 
                         }
                     }
 

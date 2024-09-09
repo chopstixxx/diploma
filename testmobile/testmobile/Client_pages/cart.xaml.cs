@@ -41,7 +41,7 @@ namespace testmobile
        
         private async void OnRefreshing(object sender, EventArgs e)
         {
-            // Вызываем метод RefreshData() для обновления данных
+           
             await RefreshData();
         }
 
@@ -103,7 +103,7 @@ namespace testmobile
 
         private async Task LoadData()
         {
-            // Вызовите метод LoadOrdersData для загрузки данных из базы данных
+          
             await ordersViewModel.LoadOrdersData();
         }
 

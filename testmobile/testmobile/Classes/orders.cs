@@ -44,7 +44,7 @@ namespace testmobile.Classes
 
             foreach (var order in Orders)
             {
-                if (order.Client_id == clientId) // Замените Client_id на фактическое свойство, которое хранит идентификатор клиента в вашем классе Order
+                if (order.Client_id == clientId) 
                 {
                     clientOrders.Add(order);
                 }
@@ -59,7 +59,7 @@ namespace testmobile.Classes
 
             foreach (var order in Orders)
             {
-                if (order.Guide_id == guide_id) // Замените Client_id на фактическое свойство, которое хранит идентификатор клиента в вашем классе Order
+                if (order.Guide_id == guide_id) 
                 {
                     guide_orders.Add(order);
                 }

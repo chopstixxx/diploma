@@ -189,13 +189,13 @@ namespace Unit_tests
                 [Test]
                 public async Task LoadDataAsync_ProductsNotEmpty_Success()
                 {
-                    // Arrange
+                    
                     var viewModel = new CatalogViewModel();
 
-                    // Act
+                    
                     await viewModel.LoadDataAsync();
 
-                    // Assert
+                    
                     Assert.IsNotNull(viewModel.Products);
                     Assert.IsNotEmpty(viewModel.Products);
                 }
@@ -203,15 +203,15 @@ namespace Unit_tests
                 [Test]
                 public async Task GetPlacesByGuideId_WithGuideId_ReturnsMatchingProducts()
                 {
-                    // Arrange
+                    
                     var viewModel = new CatalogViewModel();
-                    await viewModel.LoadDataAsync(); // Предполагается, что метод LoadDataAsync работает корректно
-                    int guideId = 123; // Замените этот идентификатор на реальный идентификатор гида
+                    await viewModel.LoadDataAsync(); 
+                    int guideId = 123;
 
-                    // Act
+                    
                     var places = viewModel.GetPlacesByGuideId(guideId);
 
-                    // Assert
+                    
                     Assert.IsNotNull(places);
                     Assert.IsInstanceOf(typeof(ObservableCollection<Product>), places);
                     foreach (var place in places)
@@ -225,13 +225,13 @@ namespace Unit_tests
                     [Test]
                     public async Task LoadOrdersData_OrdersNotEmpty_Success()
                     {
-                        // Arrange
+                       
                         var viewModel = new OrdersViewModel();
 
-                        // Act
+                      
                         await viewModel.LoadOrdersData();
 
-                        // Assert
+                       
                         Assert.IsNotNull(viewModel.Orders);
                         Assert.IsNotEmpty(viewModel.Orders);
                     }
@@ -239,15 +239,15 @@ namespace Unit_tests
                     [Test]
                     public async Task GetOrdersByClientId_WithClientId_ReturnsMatchingOrders()
                     {
-                        // Arrange
+                        
                         var viewModel = new OrdersViewModel();
-                        await viewModel.LoadOrdersData(); // Загрузим данные перед тестированием
+                        await viewModel.LoadOrdersData(); 
                         int clientId = 9;
 
-                        // Act
+                        
                         var clientOrders = viewModel.GetOrdersByClientId(clientId);
 
-                        // Assert
+                       
                         Assert.IsNotNull(clientOrders);
                         Assert.IsInstanceOf(typeof(ObservableCollection<Order>), clientOrders);
                         foreach (var order in clientOrders)
@@ -259,15 +259,15 @@ namespace Unit_tests
                     [Test]
                     public async Task GetOrdersByGuideId_WithGuideId_ReturnsMatchingOrders()
                     {
-                        // Arrange
+                      
                         var viewModel = new OrdersViewModel();
-                        await viewModel.LoadOrdersData(); // Загрузим данные перед тестированием
+                        await viewModel.LoadOrdersData(); 
                         int guideId = 3;
 
-                        // Act
+                       
                         var guideOrders = viewModel.GetOrdersByGuideId(guideId);
 
-                        // Assert
+                       
                         Assert.IsNotNull(guideOrders);
                         Assert.IsInstanceOf(typeof(ObservableCollection<Order>), guideOrders);
                         foreach (var order in guideOrders)

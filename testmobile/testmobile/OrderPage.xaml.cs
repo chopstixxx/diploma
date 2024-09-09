@@ -78,11 +78,7 @@ namespace testmobile
                         await DisplayAlert("Оформление заказа", "Заказ успешно создан!", "ОК");
 
                     }
-                    //else
-                    //{
-                    //    await DisplayAlert("Оформление заказа", "что-то пошло не так :(", "ОК");
-
-                    //}
+                   
                 }
             }
             

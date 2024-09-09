@@ -46,7 +46,7 @@ namespace testmobile
 
             foreach (var product in Products)
             {
-                if (product.Guide_Id == guideId) // Замените Client_id на фактическое свойство, которое хранит идентификатор клиента в вашем классе Order
+                if (product.Guide_Id == guideId) 
                 {
                     guidePlaces.Add(product);
                 }
@@ -151,7 +151,7 @@ namespace testmobile
 
                         using (MySqlDataReader reader = await cmd.ExecuteReaderAsync())
                         {
-                            // Инициализируем переменные
+                            
                             bool isWheelChair = false;
                             bool isWithCane = false;
                             bool isBlind = false;
@@ -162,7 +162,7 @@ namespace testmobile
                                 int disabilityId = reader.GetInt32(reader.GetOrdinal("disability_id"));
                                 bool accordance = reader.GetBoolean(reader.GetOrdinal("Accordance"));
 
-                                // В зависимости от значения disabilityId и Accordance устанавливаем соответствующую переменную true
+                                
                                 switch (disabilityId)
                                 {
                                     case 1:
@@ -177,11 +177,11 @@ namespace testmobile
                                     case 4:
                                         isDeaf = accordance;
                                         break;
-                                        // Добавьте другие случаи, если необходимо
+                                        
                                 }
                             }
 
-                            // После завершения цикла присваиваем значения переменным в объекте Product
+                            
                             product.IsWheelChair = isWheelChair;
                             product.IsWithCane = isWithCane;
                             product.IsBlind = isBlind;

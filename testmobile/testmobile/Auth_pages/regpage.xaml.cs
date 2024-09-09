@@ -44,7 +44,6 @@ namespace testmobile
 
 
 
-            // Создаю команду для вставки данных в таблицу users
             if (is_guide.IsChecked)
             {
 
@@ -65,11 +64,11 @@ namespace testmobile
 
 
 
-            // Откройте соединение и выполните команду вставки пользователя
+            
             db.openConn();
-            int userId = Convert.ToInt32(userInsertCmd.ExecuteScalar()); // Получите назначенный ID
+            int userId = Convert.ToInt32(userInsertCmd.ExecuteScalar()); 
 
-            // Теперь, когда у вас есть userId, вы можете использовать его для вставки в таблицу client
+            
 
             if (is_guide.IsChecked)
             {

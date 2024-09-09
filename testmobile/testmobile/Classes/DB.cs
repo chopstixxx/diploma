@@ -10,6 +10,7 @@ namespace testmobile
 {
     public class DB : IDisposable
     {
+                
         MySqlConnection conn = new MySqlConnection("Server = db4free.net; Port = 3306; Database = mobile_test; Uid = mobile; Pwd = mobile12; Allow User Variables=True;");
 
        

@@ -37,9 +37,7 @@ namespace testmobile.Guid_pages
                 var storage = new FirebaseStorage("diploma-dd308.appspot.com");
                 var storageRef = storage.Child("Profile_pics/" + user.Login + "_profile_photo.jpg");
 
-                // Получаем метаданные файла
-
-                // Если файл существует, получаем его URL и устанавливаем его в качестве источника изображения
+               
                 string imageUrl = await storageRef.GetDownloadUrlAsync();
                 profile_pic.Source = imageUrl;
             }

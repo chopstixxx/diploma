@@ -21,7 +21,6 @@ namespace testmobile
 
             InitializeComponent();
             viewModel = new CatalogViewModel();
-            // Создаем экземпляр ViewModel
            
 
             LoadDataAsync(viewModel);
@@ -34,10 +33,8 @@ namespace testmobile
 
         private async void LoadDataAsync(CatalogViewModel viewModel)
         {
-            // Асинхронно загружаем данные
             await viewModel.LoadDataAsync();
 
-            // Устанавливаем ViewModel в качестве контекста привязки
             this.BindingContext = viewModel.Products;
             AllProducts = viewModel.Products;
         }
@@ -47,10 +44,7 @@ namespace testmobile
             var selectedProduct = (sender as Button)?.BindingContext as Product;
             if (selectedProduct != null)
             {
-                // Используйте selectedProduct для отображения подробной информации о товаре
-                // Например, установите тексты Label и изображение Image на основе свойств товара.
-
-                // Навигация на новую страницу
+                
                 Navigation.PushAsync(new ProductDetailsPage(selectedProduct));
             }
         }

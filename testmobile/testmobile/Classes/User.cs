@@ -24,7 +24,7 @@ namespace testmobile.Classes
             using (DB dB = new DB())
             {
 
-                int id = dB.get_user_id(login); // получаю id
+                int id = dB.get_user_id(login); 
                 dB.openConn();
                 switch (IsClient)
                 {

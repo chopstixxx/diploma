@@ -19,7 +19,6 @@ namespace testmobile.Guid_pages
 	public partial class Edit_remove_place_page : ContentPage
 	{
         private readonly Product _selectedPlace;
-        //private List<string> New_ImageUrls;
         public ObservableCollection<ImageSource> New_ImageUrls { get; set; }
 
         string name;
@@ -42,10 +41,10 @@ namespace testmobile.Guid_pages
        
         private void Convert_to_observable()
         {
-            // Перебираем список строк и преобразуем каждую строку в ImageSource
+           
             foreach (string imageUrl in _selectedPlace.ImageUrls)
             {
-                // Преобразуем строку в ImageSource и добавляем в ObservableCollection
+                
                 New_ImageUrls.Add(imageUrl);
             }
         }
@@ -118,7 +117,7 @@ namespace testmobile.Guid_pages
                 return;
             }
 
-            //await DisplayAlert("Количество изображений", "" + New_ImageUrls.Count, "OK");
+            
            await Place_upd();
            await Place_pics_add();
            await Disabilities_update();
@@ -274,9 +273,9 @@ namespace testmobile.Guid_pages
             {
                 try
                 {
-                    dB.openConn(); // Открываем соединение с базой данных
+                    dB.openConn(); 
 
-                    // Проверяем каждый чекбокс и устанавливаем значение параметра Accordance соответственно
+                    
                     for (int i = 1; i <= 4; i++)
                     {
                         CheckBox checkbox = this.FindByName<CheckBox>($"Disability_{i}");
@@ -284,14 +283,14 @@ namespace testmobile.Guid_pages
                         bool accordance = checkbox.IsChecked;
                         int disabilityId = i;
 
-                        // Вставляем данные в базу данных для каждого чекбокса
+                       
                         using (MySqlCommand cmd = new MySqlCommand("UPDATE Disability_place SET Accordance = @accordance WHERE place_id = @place_id AND disability_id = @disability_id", dB.getConn()))
                         {
                             cmd.Parameters.AddWithValue("@place_id", _selectedPlace.Id);
                             cmd.Parameters.AddWithValue("@disability_id", disabilityId);
                             cmd.Parameters.AddWithValue("@accordance", accordance);
 
-                            cmd.ExecuteNonQuery(); // Выполняем запрос
+                            cmd.ExecuteNonQuery(); 
                         }
                     }
 
@@ -303,20 +302,6 @@ namespace testmobile.Guid_pages
             }
         }
 
-        public Guide_place_manager Guide_place_manager
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        internal DB DB
-        {
-            get => default;
-            set
-            {
-            }
-        }
+       
     }
 }

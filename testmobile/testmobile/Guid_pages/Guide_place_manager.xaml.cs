@@ -28,7 +28,7 @@ namespace testmobile.Guid_pages
 
         private async void OnRefreshing(object sender, EventArgs e)
         {
-            // Вызываем метод RefreshData() для обновления данных
+           
             await RefreshData();
         }
 
@@ -96,7 +96,7 @@ namespace testmobile.Guid_pages
             string login = await SecureStorage.GetAsync("login");
             using (DB dB = new DB())
             {
-                int user_id = dB.get_user_id(login); // получаю user_id
+                int user_id = dB.get_user_id(login); 
                 dB.openConn();
                 MySqlCommand cmd = new MySqlCommand("SELECT id FROM `Guide` WHERE `user_id` = @userId", dB.getConn());
                 cmd.Parameters.Add("@userId", MySqlDbType.Int32).Value = user_id;

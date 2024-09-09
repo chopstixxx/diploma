@@ -87,7 +87,6 @@ namespace testmobile
 
                 if (dt.Rows.Count > 0)
                 {
-                    //await DisplayAlert("Логин", "Пользователь есть", "ОК");
                     await Xamarin.Essentials.SecureStorage.SetAsync("login", login);
                     switch (role_check(login))
                     {

@@ -30,7 +30,7 @@ namespace testmobile.Guid_pages
 
         private async void OnRefreshing(object sender, EventArgs e)
         {
-            // Вызываем метод RefreshData() для обновления данных
+           
             await RefreshData();
         }
 
